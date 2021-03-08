@@ -22,19 +22,19 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 # In[3]:
 
-
+def init_browser():
 #create chrome webpage that allows manipulation from jupyter notebook coding
-executable_path = {'executable_path': ChromeDriverManager().install()}
-browser = Browser('chrome', **executable_path, headless=False)
+    executable_path = {'executable_path': ChromeDriverManager().install()}
+    return Browser('chrome', **executable_path, headless=False)
 
 
 # # NASA Mars News
 
 # In[4]:
-
+def scrape_info():
 
 #url of news page to be scraped
-news_url = 'https://mars.nasa.gov/news'
+    news_url = 'https://mars.nasa.gov/news'
 
 
 # In[5]:
@@ -87,13 +87,13 @@ nasa_paragraph
 
 #url of JPL Featured Space Image
 url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html'
-browser.visit(url)
+Browser.visit(url)
 
 
 # In[12]:
 
 
-html = browser.html
+html = Browser.html
 soup = bs(html,'html.parser')
 
 
@@ -121,7 +121,7 @@ featured_image_url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/' 
 # In[15]:
 
 
-browser.quit()
+Browser.quit()
 
 
 # # Mars Facts
@@ -172,13 +172,13 @@ browser = Browser('chrome', **executable_path, headless=False)
 
 
 hemi_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-browser.visit(hemi_url)
+Browser.visit(hemi_url)
 
 
 # In[23]:
 
 
-html = browser.html
+html = Browser.html
 soup = bs(html,'html.parser')
 
 mars_hemis = []
@@ -204,7 +204,14 @@ for i in range (4):
 
 
 # In[25]:
+mars_data = {
+    'mars_hemis': mars_hemis, 
+    "clean_html_table": clean_html_table,
+    "featured_image_url": featured_image_url,
+    "nasa_title": nasa_title,
+    "nasa_paragraph": nasa_paragraph
 
+}
 
 print(mars_hemis)
 
@@ -212,5 +219,7 @@ print(mars_hemis)
 # In[26]:
 
 
-browser.quit()
+Browser.quit()
+
+return mars_data
 

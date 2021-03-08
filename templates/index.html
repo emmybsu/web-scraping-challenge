@@ -5,18 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Templates 101</title>
+  <title>Mission to Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
 
     <div class="jumbotron text-center">
       <!-- Render our data -->
-      <h1>{{ text }}</h1>
-      <h1>{{ another }}</h1>
+      <h1>Mission to Mars</h1>
+      
+      <p><a class='btn btn-primary btn-lg' href="/scrape" role="button">Scrape New Data</a></p>
     </div>
+    <img src="{{featured_image_url}}" alt="Mars">
 
   </div>
 </body>
