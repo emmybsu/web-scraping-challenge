@@ -87,13 +87,13 @@ nasa_paragraph
 
 #url of JPL Featured Space Image
 url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html'
-Browser.visit(url)
+browser.visit(url)
 
 
 # In[12]:
 
 
-html = Browser.html
+html = browser.html
 soup = bs(html,'html.parser')
 
 
@@ -121,7 +121,7 @@ featured_image_url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/' 
 # In[15]:
 
 
-Browser.quit()
+browser.quit()
 
 
 # # Mars Facts
@@ -172,13 +172,13 @@ browser = Browser('chrome', **executable_path, headless=False)
 
 
 hemi_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-Browser.visit(hemi_url)
+browser.visit(hemi_url)
 
 
 # In[23]:
 
 
-html = Browser.html
+html = browser.html
 soup = bs(html,'html.parser')
 
 mars_hemis = []
@@ -219,7 +219,7 @@ print(mars_hemis)
 # In[26]:
 
 
-Browser.quit()
+browser.quit()
 
 return mars_data
 
